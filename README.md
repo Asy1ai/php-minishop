@@ -48,51 +48,9 @@ minishop
 
 ## 5. Дерекқор құрылымы (ER-диаграмма)
 
-```mermaid
-erDiagram
-    USERS ||--o{ ORDERS : "жасайды"
-    CATEGORIES ||--o{ PRODUCTS : "қамтиды"
-    ORDERS ||--|{ ORDER_ITEMS : "құрамында"
-    PRODUCTS ||--o{ ORDER_ITEMS : "кіреді"
+Төменде MiniShop жобасының дерекқор құрылымы көрсетілген.
 
-    USERS {
-        int id PK
-        varchar name
-        varchar email UK
-        varchar password_hash
-        enum role "user/admin"
-        timestamp created_at
-    }
-    CATEGORIES {
-        int id PK
-        varchar name
-    }
-    PRODUCTS {
-        int id PK
-        int category_id FK
-        varchar title
-        text description
-        decimal price
-        int stock
-        varchar image
-        timestamp created_at
-    }
-    ORDERS {
-        int id PK
-        int user_id FK
-        decimal total
-        enum status "new/paid/shipped/done"
-        varchar address
-        timestamp created_at
-    }
-    ORDER_ITEMS {
-        int id PK
-        int order_id FK
-        int product_id FK
-        int quantity
-        decimal price
-    }
-```
+![MiniShop ER диаграммасы](er-diagram.png)
 
 ## 6. Жоба құрылымы
 
