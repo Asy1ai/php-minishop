@@ -1,0 +1,673 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #7656d8;
+    --dark-purple: #5e40bd;
+    --ink: #292641;
+    --muted: #77748e;
+    --background: #faf9ff;
+    --line: #eeeaf8;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--ink);
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+    width: min(1120px, calc(100% - 36px));
+    margin: auto;
+}
+
+/* ЖОҒАРҒЫ МӘЗІР */
+
+header {
+    background: #ffffffed;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a, nav button {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    border: 0;
+    background: none;
+}
+
+nav a:hover, nav a.active {
+    color: var(--purple);
+}
+
+nav .nav-button {
+    color: white;
+    background: var(--purple);
+    padding: 11px 17px;
+    border-radius: 10px;
+}
+
+#cartCount {
+    background: #eee8ff;
+    color: var(--purple);
+    border-radius: 20px;
+    padding: 3px 7px;
+}
+
+.menu-btn {
+    display: none;
+    border: 0;
+    background: none;
+    font-size: 25px;
+}
+
+/* БАТЫРМАЛАР */
+
+.btn {
+    background: var(--purple);
+    color: white;
+    border: 0;
+    border-radius: 11px;
+    padding: 13px 20px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: var(--dark-purple);
+    transform: translateY(-2px);
+}
+
+.secondary {
+    background: #eee8ff;
+    color: var(--dark-purple);
+    box-shadow: none;
+}
+
+.secondary:hover {
+    color: white;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.text-button {
+    border: 0;
+    background: none;
+    color: var(--purple);
+    font-weight: 700;
+}
+
+/* БЕТТЕР */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    margin-top: 28px;
+    border-radius: 24px;
+    min-height: 350px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(120deg, #eee7ff, #fff0eb);
+}
+
+.hero-text {
+    padding: 35px;
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.12;
+    margin: 0 0 18px;
+    letter-spacing: -1px;
+}
+
+.hero h1 span {
+    color: var(--purple);
+}
+
+.hero-text > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.hero-picture {
+    height: 350px;
+}
+
+.hero-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 25px 0 55px;
+}
+
+.advantage {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: white;
+    padding: 17px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+}
+
+.advantage > span {
+    font-size: 27px;
+}
+
+.advantage b {
+    font-size: 14px;
+}
+
+.advantage p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 5px 0 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.section-space {
+    padding-top: 45px;
+    padding-bottom: 60px;
+}
+
+.muted {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ТАУАР КАРТОЧКАЛАРЫ */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    padding: 11px;
+    transition: 0.2s;
+    min-width: 0;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px #39246b12;
+}
+
+.product-image {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #f3efff;
+}
+
+.product-info {
+    padding: 13px 3px 3px;
+}
+
+.product-category {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 7px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    margin: 0 0 14px;
+    min-height: 35px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.price {
+    font-weight: 800;
+}
+
+.product-bottom .btn {
+    padding: 9px 11px;
+    font-size: 12px;
+}
+
+/* ІЗДЕУ */
+
+.catalog-tools {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0 18px;
+}
+
+.catalog-tools input,
+.catalog-tools select {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px;
+    outline: none;
+}
+
+.catalog-tools input {
+    flex: 1;
+    min-width: 0;
+}
+
+.catalog-tools input:focus,
+.catalog-tools select:focus {
+    border-color: var(--purple);
+}
+
+#productCount {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ТІРКЕЛУ ЖӘНЕ КІРУ */
+
+.auth-background {
+    padding: 50px 18px;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(circle at 15% 20%, #eee7ff, transparent 35%),
+        radial-gradient(circle at 90% 80%, #ffede5, transparent 30%);
+}
+
+.auth-card, .profile-card {
+    width: min(460px, 100%);
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: white;
+    box-shadow: 0 12px 35px #39246b12;
+}
+
+.auth-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: #f0ecff;
+    border-radius: 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.auth-card h1, .profile-card h1 {
+    font-size: 30px;
+    margin: 0 0 10px;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+}
+
+.auth-card label {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 10px 0 7px;
+}
+
+.auth-card input {
+    padding: 13px;
+    border: 1px solid #e6e1f2;
+    border-radius: 10px;
+    outline: none;
+}
+
+.auth-card input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px #7656d81a;
+}
+
+.form-message {
+    color: var(--dark-purple);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.switch-text {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 22px;
+}
+
+.switch-text button {
+    border: 0;
+    background: none;
+    color: var(--purple);
+    font-weight: 800;
+}
+
+/* СЕБЕТ */
+
+.cart-list {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.cart-item {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.cart-item img {
+    width: 105px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.quantity button {
+    border: 0;
+    background: #eee8ff;
+    color: var(--dark-purple);
+    border-radius: 7px;
+    width: 30px;
+    height: 30px;
+    font-weight: 800;
+}
+
+.remove-btn {
+    border: 0;
+    background: #fff0f0;
+    color: #bb3535;
+    padding: 9px 12px;
+    border-radius: 9px;
+}
+
+.cart-summary {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 22px;
+    margin-top: 22px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 35px 15px;
+    background: white;
+    border: 1px dashed #d8cff5;
+    border-radius: 16px;
+}
+
+.empty-cart p {
+    color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+    background: white;
+    border-top: 1px solid var(--line);
+    padding: 22px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* ХАБАРЛАМА */
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 20;
+    background: var(--ink);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.25s;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ТЕЛЕФОНҒА БЕЙІМДЕУ */
+
+@media (max-width: 850px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-image {
+        height: 170px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr 0.8fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        min-height: 68px;
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-bottom: 15px;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a, nav button {
+        padding: 11px 4px;
+        text-align: left;
+    }
+
+    nav .nav-button {
+        text-align: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        margin-top: 15px;
+    }
+
+    .hero-text {
+        padding: 25px;
+    }
+
+    .hero-picture {
+        height: 210px;
+    }
+
+    .advantages {
+        grid-template-columns: 1fr;
+        margin-bottom: 40px;
+    }
+
+    .catalog-tools {
+        flex-direction: column;
+    }
+
+    .section-title h2 {
+        font-size: 22px;
+    }
+
+    .auth-card, .profile-card {
+        padding: 24px 19px;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+    }
+
+    .cart-item img {
+        width: 85px;
+        height: 85px;
+    }
+
+    .cart-item .remove-btn {
+        margin-left: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 380px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+
+    .section-title {
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+}

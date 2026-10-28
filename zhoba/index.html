@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniShop — Онлайн дүкен</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="#" class="logo" data-page="home">
+            Mini<span>Shop</span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <nav id="nav">
+            <a href="#" data-page="home">Басты бет</a>
+            <a href="#" data-page="catalog">Тауарлар</a>
+            <a href="#" data-page="cart">
+                Себет 🛒 <span id="cartCount">0</span>
+            </a>
+            <a href="#" data-page="login" id="loginLink">Кіру</a>
+            <a href="#" data-page="register" class="nav-button"
+               id="registerLink">Тіркелу</a>
+            <a href="#" data-page="profile" id="profileLink" hidden>
+                Профиль
+            </a>
+            <button id="logoutBtn" hidden>Шығу</button>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- БАСТЫ БЕТ -->
+    <section class="page active" id="home">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-text">
+                    <p class="eyebrow">MINISHOP ОНЛАЙН ДҮКЕНІ</p>
+
+                    <h1>
+                        Сүйікті тауарларың
+                        <span>бір жерде!</span>
+                    </h1>
+
+                    <p>
+                        Өзіңізге ұнайтын тауарларды таңдап,
+                        себетке қосыңыз және сатып алуды бастаңыз.
+                    </p>
+
+                    <button class="btn" data-page="catalog">
+                        Каталогқа өту →
+                    </button>
+                </div>
+
+                <div class="hero-picture">
+                    <img
+                        src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=900&q=85"
+                        alt="Онлайн дүкендегі сауда"
+                    >
+                </div>
+            </div>
+
+            <div class="advantages">
+                <div class="advantage">
+                    <span>🚚</span>
+                    <div>
+                        <b>Жылдам жеткізу</b>
+                        <p>Ыңғайлы сауда</p>
+                    </div>
+                </div>
+
+                <div class="advantage">
+                    <span>🛡️</span>
+                    <div>
+                        <b>Сапалы тауарлар</b>
+                        <p>Таңдаулы өнімдер</p>
+                    </div>
+                </div>
+
+                <div class="advantage">
+                    <span>💜</span>
+                    <div>
+                        <b>Қолдау қызметі</b>
+                        <p>Сізге көмектесеміз</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">БІЗДІҢ ТАҢДАУ</p>
+                    <h2>Танымал тауарлар</h2>
+                </div>
+
+                <button class="text-button" data-page="catalog">
+                    Барлығын көру →
+                </button>
+            </div>
+
+            <div class="products" id="featuredProducts"></div>
+        </div>
+    </section>
+
+    <!-- ТАУАРЛАР КАТАЛОГЫ -->
+    <section class="page" id="catalog">
+        <div class="container section-space">
+            <p class="eyebrow">MINISHOP КАТАЛОГЫ</p>
+            <h1>Барлық тауарлар</h1>
+            <p class="muted">
+                Өзіңізге ұнаған тауарды іздеп, себетке қосыңыз.
+            </p>
+
+            <div class="catalog-tools">
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="🔎 Тауар атауын іздеу..."
+                >
+
+                <select id="categoryFilter">
+                    <option value="all">Барлық санаттар</option>
+                    <option value="Электроника">Электроника</option>
+                    <option value="Аксессуарлар">Аксессуарлар</option>
+                    <option value="Киім">Киім</option>
+                    <option value="Үйге арналған">Үйге арналған</option>
+                </select>
+            </div>
+
+            <p class="muted" id="productCount"></p>
+
+            <div class="products" id="allProducts"></div>
+        </div>
+    </section>
+
+    <!-- СЕБЕТ -->
+    <section class="page" id="cart">
+        <div class="container section-space">
+            <p class="eyebrow">СІЗДІҢ ТАҢДАУЫҢЫЗ</p>
+            <h1>Менің себетім 🛒</h1>
+            <p class="muted">Себетке қосқан тауарларыңызды осында көресіз.</p>
+
+            <div id="cartItems" class="cart-list"></div>
+
+            <div id="cartSummary" class="cart-summary"></div>
+        </div>
+    </section>
+
+    <!-- ТІРКЕЛУ -->
+    <section class="page" id="register">
+        <div class="auth-background">
+            <div class="auth-card">
+                <div class="auth-icon">✨</div>
+
+                <p class="eyebrow">MINISHOP ҚАУЫМДАСТЫҒЫ</p>
+                <h1>Тіркелу</h1>
+                <p class="muted">Жаңа аккаунт ашу үшін форманы толтырыңыз.</p>
+
+                <form id="registerForm">
+                    <label for="regName">Аты-жөніңіз</label>
+                    <input id="regName" type="text" required minlength="2"
+                           placeholder="Аты-жөніңіз">
+
+                    <label for="regEmail">Электрондық пошта</label>
+                    <input id="regEmail" type="email" required
+                           placeholder="name@example.com">
+
+                    <label for="regPassword">Құпиясөз</label>
+                    <input id="regPassword" type="password"
+                           required minlength="6"
+                           placeholder="Кемінде 6 таңба">
+
+                    <label for="regPassword2">Құпиясөзді қайталау</label>
+                    <input id="regPassword2" type="password"
+                           required minlength="6"
+                           placeholder="Құпиясөзді қайталаңыз">
+
+                    <button class="btn full-width" type="submit">
+                        Аккаунт ашу
+                    </button>
+
+                    <p class="form-message" id="registerMessage"></p>
+                </form>
+
+                <p class="switch-text">
+                    Аккаунтыңыз бар ма?
+                    <button data-page="login">Кіру</button>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- КІРУ -->
+    <section class="page" id="login">
+        <div class="auth-background">
+            <div class="auth-card">
+                <div class="auth-icon">👋</div>
+
+                <p class="eyebrow">ҚАЙТА ҚОШ КЕЛДІҢІЗ!</p>
+                <h1>Жүйеге кіру</h1>
+                <p class="muted">Аккаунтыңызға кіріңіз.</p>
+
+                <form id="loginForm">
+                    <label for="loginEmail">Электрондық пошта</label>
+                    <input id="loginEmail" type="email" required
+                           placeholder="name@example.com">
+
+                    <label for="loginPassword">Құпиясөз</label>
+                    <input id="loginPassword" type="password" required
+                           placeholder="Құпиясөзіңіз">
+
+                    <button class="btn full-width" type="submit">
+                        Кіру
+                    </button>
+
+                    <p class="form-message" id="loginMessage"></p>
+                </form>
+
+                <p class="switch-text">
+                    Аккаунтыңыз жоқ па?
+                    <button data-page="register">Тіркелу</button>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОФИЛЬ -->
+    <section class="page" id="profile">
+        <div class="container section-space">
+            <div class="profile-card">
+                <div class="auth-icon">👤</div>
+                <p class="eyebrow">ЖЕКЕ КАБИНЕТ</p>
+                <h1>Менің профилім</h1>
+
+                <p><b>Аты-жөні:</b> <span id="profileName"></span></p>
+                <p><b>Email:</b> <span id="profileEmail"></span></p>
+
+                <button class="btn" data-page="cart">
+                    Себетімді көру
+                </button>
+                <button class="btn secondary" data-page="catalog">
+                    Сауданы жалғастыру
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <a href="#" class="logo" data-page="home">
+            Mini<span>Shop</span>
+        </a>
+        <p>© 2026 MiniShop. Оқу жобасы.</p>
+        <p>Болатқызы Асылай · АЖ-336</p>
+    </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
